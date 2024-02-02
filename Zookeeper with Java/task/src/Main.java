@@ -5,6 +5,5 @@ public class Main {
         System.out.println("The deer looks fine.");
         System.out.println("The bat looks happy.");
         System.out.println("The lion looks healthy.");
-
     }
 }
