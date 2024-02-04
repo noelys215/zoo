@@ -1,11 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        String name = "Lazy";
-        String status = "detected";
-        int errorCode = 2;
+        String textBlock = """
+                Hello\\sWord\\n!
+                Hello Java\\s!""";
 
-        //Fix code below
-        String formattedMessage = String.format("%s employee %s! Error code: %s", name, status, errorCode);
-        System.out.printf("Result of work - %s", formattedMessage);
+        System.out.println(textBlock.translateEscapes());
     }
 }
