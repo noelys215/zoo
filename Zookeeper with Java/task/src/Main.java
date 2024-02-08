@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         String camel = """
                 Switching on the camera in the camel habitat...
                  ___.-''''-.
@@ -127,20 +126,29 @@ public class Main {
 
         String[] habitats = {camel, lion, deer, goose, bat, rabbit};
 
-        // Prompt the user for the habitat number
-        System.out.println("Please enter the number of the habitat you would like to view:");
-        int index = scanner.nextInt();
+        while (true) {
+            System.out.println("Please enter the number of the habitat you would like to view:");
+            String input = scanner.nextLine(); // Read the next line of input
 
+            if (input.equalsIgnoreCase("exit")) {
+                break; // Exit the loop if the user enters "exit"
+            }
 
-        // Check for valid input and display the selected habitat
-        if (index >= 0 && index < habitats.length) {
-            System.out.println(habitats[index]);
-        } else {
-            System.out.println("Invalid habitat number. Please restart the watcher.");
+            int index;
+            try {
+                index = Integer.parseInt(input); // Try to parse the input as an integer
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number or 'exit'.");
+                continue; // Skip the rest of the loop and prompt again
+            }
+
+            if (index >= 0 && index < habitats.length) {
+                System.out.println(habitats[index]);
+            } else {
+                System.out.println("Invalid habitat number. Please enter a valid number or 'exit'.");
+            }
         }
 
-        // End of the program message
-        System.out.println("---\nYou've reached the end of the program. To check another habitat, please restart the watcher.");
-
+        System.out.println("See you later!"); // Print the farewell message
     }
 }
